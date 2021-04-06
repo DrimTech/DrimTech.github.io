@@ -1,3 +1,9 @@
+/*
+------------------------------------------------
+Estilos de las Highlights
+--------------------------------------------------
+*/
+
 .highlight-phone {
   color: #313437;
   background-color: #eef4f7;
@@ -21,7 +27,7 @@
   line-height: 1.5;
   padding-top: 0;
   margin-top: 0;
-  color: inherit;
+  color: white;
 }
 
 .highlight-phone .intro {
@@ -38,6 +44,7 @@
 
 .highlight-phone .intro p {
   margin-bottom: 35px;
+  color: white;
 }
 
 .highlight-phone .intro .btn {

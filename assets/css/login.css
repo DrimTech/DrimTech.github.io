@@ -1,0 +1,33 @@
+	h1 {
+		text-align: center;
+		color: white;
+	}
+
+	h2 {
+		text-align: center;
+		color: black;
+	}
+
+	table {
+		width: 25%;
+		background-color: #6c757d;
+		border: 2px groove black;
+		border-radius: 10px;
+		margin: auto;
+	}
+
+	.izq {
+		text-align: right;
+		color: black;
+	}
+
+	.der {
+		text-align: left;
+		padding: 10px;
+	}
+
+	td {
+		text-align: center;
+		padding: 20px;
+		border-radius: 10px;
+	}

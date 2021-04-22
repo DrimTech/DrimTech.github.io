@@ -3,7 +3,10 @@
 Estilos generales
 --------------------------------------------------
 */
-
+body{
+    margin: 0;
+    padding: 0;
+}
 p.description {
     color: white;
 }
@@ -12,3 +15,23 @@ p.description {
 .list-inline-item {
     color: white;
 } /*Estilos del footer o pie de página*/
+
+
+table
+{
+    width: 25%;
+    background-color: #6c757d;
+    border: 2px groove black;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 22em;
+}
+td {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+#btn-Dash
+{
+    width: 300px;
+}

@@ -1,44 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-	<title>Iniciar sesión</title>
-    <link rel="stylesheet" href="assets/css/login.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-</head><!--Conexiones-->
+<?php
+
+$enlace = mysqli_connect("127.0.0.1", "root", "root", "blog");
+//Aquí se establece conexión con la base de datos: ("host", "usuario_bd", "password_bd", "base_de_datos")
 
 
-<body style="background: var(--gray-dark);">
-<!--Estilo del body-->
+if (!$enlace) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "Error de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}	//Si el enlace no se establece, aquí se dará aviso en la página el tipo de error por medio de echos de alerta con el tipo de error.
 
-<h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
 
-<form action="redireccionar_home_admin.php" method="post"><!--Aqui se deberá poner la página a la que va a redireccionar una vez que el administrador inicie sesión, que aún no se crea-->
+$nombre = $_POST["usuario"]; 	//Se recibe de NOMBRE (etiqueta usuario en login.html) el usuario.
 
-	<table>
-		<br>
-		<br>
-		<br>
-		<br>
-		<h2>Iniciar sesión</h2>
-		<br>
-		<tr>
-		<td class="izq">Usuario: </td>	
-		<td class="der"><input type="text" name="login"></td>
-		</tr>
+$pass = $_POST["password"];		//Se recibe de PASS (etiqueta passwor en login.html) el password.
 
-		<tr>
-		<td class="izq">Contraseña: </td>	
-		<td class="der"><input type="password" name="password"></td>
-		</tr>
+$query = mysqli_query($enlace,"SELECT * FROM `blog` WHERE `usuario` = '".$nombre."' and password = '".$pass."'");	//Se corrobora que el usuario y el password coincidan con las filas y columnas respectivas en la base de datos.
 
-		<tr>
-			<td colspan="2"><input type="submit" name="enviar" value="Entrar"></td>
-		</tr>
-	</table><!--Termina cuadro de texto para inicio de sesión-->
+$nr = mysqli_num_rows($query);	//Arroja si la información coinicide retornando boolean (true (1) si coincide, false (0) si no coinicide)
 
-</body><!--Termina cuerpo del login-->
-</html>
+
+if ($nr == 1)	//Si coinicide, redirigirá a la página que está en la función header.
+{
+	header("Location: Entrada.html");	//Redirige a la página asignada
+	//echo "Bienvenido:  " .$nombre; //Mensaje en php con echo para probar si el usuario y password coinciden 
+}
+
+else
+{
+	echo "Nambre parce', ni tu user ni tu password dan UwU";	//Si el usuario o la contraseña no coiniciden, arrojará ese error a manera de echo en la página php.
+}
+
+?>

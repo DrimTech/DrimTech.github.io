@@ -23,7 +23,7 @@ $nr = mysqli_num_rows($query);	//Arroja si la información coinicide retornando 
 
 if ($nr == 1)	//Si coinicide, redirigirá a la página que está en la función header.
 {
-	header("Location: Entrada.html");	//Redirige a la página asignada
+	header("Location: index.html");	//Redirige a la página asignada
 	//echo "Bienvenido:  " .$nombre; //Mensaje en php con echo para probar si el usuario y password coinciden 
 }
 

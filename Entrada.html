@@ -39,6 +39,28 @@
             </style>
     </head><!--Título de pestaña, importaciones y conexiones-->
 <body style="color: var(--blue);background: var(--gray-dark);">
+<?php
+session_start();
+
+if(!isset($_SESSION['admin_login']))	
+{
+	header("location: ../index.php");  
+}
+
+if(isset($_SESSION['personal_login']))	
+{
+	header("location: ../personal/personal_portada.php");	
+}
+
+if(isset($_SESSION['usuarios_login']))	
+{
+	header("location: ../usuarios/usuarios_portada.php");
+}
+				
+if(isset($_SESSION['admin_login']))
+{
+?>
+				
     <h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
         <div class="container"><a class="navbar-brand" href="index.html">DrimTech Blog</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>

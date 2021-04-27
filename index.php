@@ -1,111 +1,221 @@
-<?php
-	$str_browser_language = !empty($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? strtok(strip_tags($_SERVER['HTTP_ACCEPT_LANGUAGE']), ',') : '';
-	$str_browser_language = !empty($_GET['language']) ? $_GET['language'] : $str_browser_language;
-	switch (substr($str_browser_language, 0,2))
-	{
-		case 'de':
-			$str_language = 'de';
-			break;
-		case 'en':
-			$str_language = 'en';
-			break;
-		default:
-			$str_language = 'en';
-	}
-    
-	$arr_available_languages = array();
-	$arr_available_languages[] = array('str_name' => 'English', 'str_token' => 'en');
-	$arr_available_languages[] = array('str_name' => 'Deutsch', 'str_token' => 'de');
-    
-	$str_available_languages = (string) '';
-	foreach ($arr_available_languages as $arr_language)
-	{
-		if ($arr_language['str_token'] !== $str_language)
-		{
-			$str_available_languages .= '<a href="'.strip_tags($_SERVER['PHP_SELF']).'?language='.$arr_language['str_token'].'" lang="'.$arr_language['str_token'].'" xml:lang="'.$arr_language['str_token'].'" hreflang="'.$arr_language['str_token'].'">'.$arr_language['str_name'].'</a> | ';
-		}
-	}
-	$str_available_languages = substr($str_available_languages, 0, -3);
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<title>Iniciar sesión: administrador</title>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head lang="<?php echo $str_language; ?>" xml:lang="<?php echo $str_language; ?>">
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>MAMP PRO</title>
+<link rel="icon" href="browser.png">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="js/jquery-1.12.4-jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <style type="text/css">
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: .9em;
-        color: #000000;
-        background-color: #FFFFFF;
-        margin: 0;
-        padding: 10px 20px 20px 20px;
+	.login-form {
+		width: 340px;
+    	margin: 20px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
     }
-
-    samp {
-        font-size: 1.3em;
+    .login-form h2 {
+        margin: 0 0 15px;
     }
-
-    a {
-        color: #000000;
-        background-color: #FFFFFF;
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
     }
-
-    sup a {
-        text-decoration: none;
-    }
-
-    hr {
-        margin-left: 90px;
-        height: 1px;
-        color: #000000;
-        background-color: #000000;
-        border: none;
-    }
-
-    #logo {
-        margin-bottom: 10px;
-        margin-left: 28px;
-    }
-
-    .text {
-        width: 80%;
-        margin-left: 90px;
-        line-height: 140%;
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
     }
 </style>
 </head>
+	<body>
 
-<body>
-    <p><img src="MAMP-PRO-Logo.png" id="logo" alt="MAMP PRO Logo" width="250" height="49" /></p>
+<?php
+require_once 'DBconect.php';
+session_start();
+if(isset($_SESSION["admin_login"]))	// Si la sesión del admin está abierta entonces:
+{
+	header("location: admin/indexadmin.php"); // El home del admin será este
+}
+if(isset($_REQUEST['btn_login']))	
+{
+	$email		=$_REQUEST["txt_email"];	//textbox nombre "txt_email"
+	$password	=$_REQUEST["txt_password"];	//textbox nombre "txt_password"
+	$role		=$_REQUEST["txt_role"];		//select opcion nombre "txt_role"
+		
+	if(empty($email)){						
+		$errorMsg[]="Por favor ingrese un Email válido.";	//Revisar email
+	}
+	else if(empty($password)){
+		$errorMsg[]="Por favor ingrese su contraseña.";	//Revisar password vacio
+	}
+	else if(empty($role)){
+		$errorMsg[]="Por favor seleccione el rol que desempeña.";	//Revisar rol vacio
+	}
+	else if($email AND $password AND $role)
+	{
+		try
+		{
+			$select_stmt=$db->prepare("SELECT email,password,role FROM mainlogin
+										WHERE
+										email=:uemail AND password=:upassword AND role=:urole"); 
+			$select_stmt->bindParam(":uemail",$email);
+			$select_stmt->bindParam(":upassword",$password);
+			$select_stmt->bindParam(":urole",$role);
+			$select_stmt->execute();	//execute query
+					
+			while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))	
+			{
+				$dbemail	=$row["email"];
+				$dbpassword	=$row["password"];
+				$dbrole		=$row["role"];
+			}
+			if($email!=null AND $password!=null AND $role!=null)	
+			{
+				if($select_stmt->rowCount()>0)
+				{
+					if($email==$dbemail and $password==$dbpassword and $role==$dbrole)
+					{
+						switch($dbrole)		//inicio de sesión de usuario base de roles
+						{
+							case "admin":
+								$_SESSION["admin_login"]=$email;			
+								$loginMsg="Administrador logeado con éxito.";	
+								header("refresh:3;admin/indexadmin.php");	
+								break;
+								
+							case "personal";
+								$_SESSION["personal_login"]=$email;				
+								$loginMsg="Personal: Inicio sesión con éxito";		
+								header("refresh:3;personal/personal_portada.php");	
+								break;
+								
+							case "usuarios":
+								$_SESSION["usuarios_login"]=$email;				
+								$loginMsg="Usuario: Inicio sesión con éxito";	
+								header("refresh:3;usuarios/usuarios_portada.php");		
+								break;
+								
+							default:
+								$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
+						}
+					}
+					else
+					{
+						$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
+					}
+				}
+				else
+				{
+					$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
+				}
+			}
+			else
+			{
+				$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
+			}
+		}
+		catch(PDOException $e)
+		{
+			$e->getMessage();
+		}		
+	}
+	else
+	{
+		$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
+	}
+}
+include("header.php");
+?>
 
-<?php if ($str_language == 'de'): ?>
+	
+	<div class="wrapper">
+	
+	<div class="container">
+			
+		<div class="col-lg-12">
+		
+		<?php
+		if(isset($errorMsg))
+		{
+			foreach($errorMsg as $error)
+			{
+			?>
+				<div class="alert alert-danger">
+					<strong><?php echo $error; ?></strong>
+				</div>
+            <?php
+			}
+		}
+		if(isset($loginMsg))
+		{
+		?>
+			<div class="alert alert-success">
+				<strong>¡Inicio de sesión exitoso! <?php echo $loginMsg; ?></strong>
+			</div>
+        <?php
+		}
+		?> 
 
-    <p class="text"><strong>Der virtuelle <span lang="en" xml:lang="en">Host</span> wurde erfolgreich eingerichtet.</strong></p>
-    <p class="text">Wenn Sie diese Seite sehen, dann bedeutet dies, dass der neue virtuelle <span lang="en" xml:lang="en">Host</span> erfolgreich eingerichtet wurde. Sie können jetzt Ihren <span lang="en" xml:lang="en">Web</span>-Inhalt hinzufügen, diese Platzhalter-Seite<sup><a href="#footnote_1">1</a></sup> sollten Sie ersetzen <abbr title="beziehungsweise">bzw.</abbr> löschen.</p>
-    <p class="text">
-        Server-Name: <samp><?php echo $_SERVER['SERVER_NAME']; ?></samp><br />
-        Document-Root: <samp><?php echo $_SERVER['DOCUMENT_ROOT']; ?></samp>
-    </p>
-    <p class="text" id="footnote_1"><small><sup>1</sup> Dateien: <samp>index.php</samp> und <samp>MAMP-PRO-Logo.png</samp></small></p>
-    <hr />
-    <p class="text">This page in: <?php echo $str_available_languages; ?></p>
 
-<?php elseif ($str_language == 'en'): ?>
+<div class="login-form">
+<center><h2>Iniciar sesión</h2></center>
+<form method="post" class="form-horizontal">
+  <div class="form-group">
+  <label class="col-sm-6 text-left">Email</label>
+  <div class="col-sm-12">
+  <input type="text" name="txt_email" class="form-control" placeholder="Ingrese su email" />
+  </div>
+  </div>
+      
+  <div class="form-group">
+  <label class="col-sm-6 text-left">Contraseña</label>
+  <div class="col-sm-12">
+  <input type="password" name="txt_password" class="form-control" placeholder="Ingrese su contraseña" />
+  </div>
+  </div>
+      
+  <div class="form-group">
+      <label class="col-sm-6 text-left">Rol</label>
+      <div class="col-sm-12">
+      <select class="form-control" name="txt_role">
+          <option value="" selected="selected"> -- Seleccione su rol -- </option>
+          <option value="admin">Admin</option>
+          <!--<option value="personal">Personal</option>
+          <option value="usuarios">Usuarios</option>--> <!-- No existirán los roles personales ni de usuarios, únicamente se deja habilitada la opción de administrador-->
+      </select>
+      </div>
+  </div>
+  
+  <div class="form-group">
+  <div class="col-sm-12">
+  <input type="submit" name="btn_login" class="btn btn-success btn-block" value="Entrar">
+  </div>
+  </div>
+  
+  <!--
+  <div class="form-group">
+  <div class="col-sm-12">
+  ¿No tienes una cuenta? <a href="registro.php"><p class="text-info">Registrar Cuenta</p></a>		
+  </div>
+  </div>
+  -->
 
-    <p class="text"><strong>The virtual host was set up successfully.</strong></p>
-    <p class="text">If you can see this page, your new virtual host was set up successfully. Now, web content can be added and this placeholder page<sup><a href="#footnote_1">1</a></sup> should be replaced or deleted.</p>
-    <p class="text">
-        Server name: <samp><?php echo $_SERVER['SERVER_NAME']; ?></samp><br />
-        Document root: <samp><?php echo $_SERVER['DOCUMENT_ROOT']; ?></samp>
-    </p>
-    <p class="text" id="footnote_1"><small><sup>1</sup> Files: <samp>index.php</samp> and <samp>MAMP-PRO-Logo.png</samp></small></p>
-    <hr />
-    <p class="text">Diese Seite auf: <?php echo $str_available_languages; ?></p>
-
-<?php endif; ?>
-
-</body>
+  <!--Quitar documentación anterior para poder redirigir a la página de registro de usuario-->
+</form>
+</div>
+<!--Cierra div login-->
+		</div>
+		
+	</div>
+			
+	</div>
+										
+	</body>
 </html>

@@ -17,7 +17,7 @@
 </head><!--Título de pestaña, importaciones y conexiones-->
 
 <body style="color: var(--blue);background: var(--gray-dark);">
-                <h3>
+
                 <?php
                 session_start();
 
@@ -39,47 +39,50 @@
                 if(isset($_SESSION['admin_login']))
                 {
                 ?>
-                    Bienvenido,
+
+    <div style="margin-top: 0px; background-color: #6c757d; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; padding-bottom: 10px">
+    <h4 class="center" style="color: white; text-align: center; margin-bottom: -15px;">
+                    Bienvenidos, equipo
                 <?php
-                        echo $_SESSION['admin_login'];
+                        echo DrimTech;
                 }
                 ?>
-                </h3>
-    <h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
-    <h2 style="border-right-style: none;text-align: center;color: var(--light);">Dashboard</h2>
-    
+    </h4>
+
+    <center><hr style="color: white;" width=40%></center>
+    <h4 style="border-right-style: none;text-align: center;color: var(--light);">Dashboard</h4>
+
+    </div>
+
+    <br>
+        
 	<table>
-		<br>
 
         <tr>
-            <td><button style="color: white"><a href="Entrada.php" style="color = white">Nueva publicación</button></td></a>
+            <td><button style="color: white"><a href="Entrada.php" title="Hacer nueva publicación para el blog">Nueva publicación</button></td></a>
 		</tr>
 		<tr>
-           <td><button style="color: white"><a href="../index.html">Ver Blog</button></td></a>
+           <td><button style="color: white"><a href="../index.html" title="Ver blog en modo usuario">Ver Blog</button></td></a>
 		</tr>
 
 		<tr>
-            <td><button style="color: white">Lista de publicaciones</button></td>
+            <td><button style="color: white"><a href="#" title="Administrar todas las publicaciones"> Lista de publicaciones</button></td></a>
 		</tr>
 
         <tr>
-            <td><button style="color: white"><a href="admin_portada.php">Administrar usuarios</button></td></a>
+            <td><button style="color: white"><a href="admin_portada.php" title="Administra a los usuarios registrados">Administrar usuarios</button></td></a>
+        </tr>
+
+        <tr>
+            <td><button style="color: white"><a href="../cerrar_sesion.php" title="Cierre la sesión activa de manera inmediata">Cerrar sesión</button></td></a>
         </tr>
 
         <br>
         <br>
         <br>
 	</table>
-        
-
-        <br><br><br><br><br><br>
-        <footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
-            
-            
-            
-            <p class="copyright">DrimTeam Technlogies© 2021, All Rights Reserved</p>
-        </footer><!--Footer, pie de página, redes sociales y contacto-->
     </section><!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
+
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

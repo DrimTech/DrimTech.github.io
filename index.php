@@ -32,7 +32,12 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+    body {
+    	background-color: #313437;
+    }
 </style>
+
 </head>
 	<body>
 
@@ -131,9 +136,22 @@ if(isset($_REQUEST['btn_login']))
 		$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
 	}
 }
-include("header.php");
+
 ?>
 
+	<nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Regresar al Blog</a>
+        </div>
+      </div>
+    </nav>
 	
 	<div class="wrapper">
 	
@@ -165,7 +183,7 @@ include("header.php");
 
 
 <div class="login-form">
-<center><h2>Iniciar sesión</h2></center>
+<center><h2 style="color: white;">Iniciar sesión</h2></center>
 <form method="post" class="form-horizontal">
   <div class="form-group">
   <label class="col-sm-6 text-left">Email</label>
@@ -185,10 +203,8 @@ include("header.php");
       <label class="col-sm-6 text-left">Rol</label>
       <div class="col-sm-12">
       <select class="form-control" name="txt_role">
-          <option value="" selected="selected"> -- Seleccione su rol -- </option>
           <option value="admin">Admin</option>
-          <!--<option value="personal">Personal</option>
-          <option value="usuarios">Usuarios</option>--> <!-- No existirán los roles personales ni de usuarios, únicamente se deja habilitada la opción de administrador-->
+
       </select>
       </div>
   </div>
@@ -199,15 +215,6 @@ include("header.php");
   </div>
   </div>
   
-  <!--
-  <div class="form-group">
-  <div class="col-sm-12">
-  ¿No tienes una cuenta? <a href="registro.php"><p class="text-info">Registrar Cuenta</p></a>		
-  </div>
-  </div>
-  -->
-
-  <!--Quitar documentación anterior para poder redirigir a la página de registro de usuario-->
 </form>
 </div>
 <!--Cierra div login-->

@@ -31,6 +31,15 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+    body{
+    	background-color: #313437;
+    }
+
+    h2{
+    	color: white;
+    }
+
 </style>
 </head>
 	<body>
@@ -101,8 +110,22 @@ if(isset($_REQUEST['btn_register'])) //compruebe el nombre del botón "btn_regis
 		}
 	}
 }
-include("header.php");
+
 ?>
+	<nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Regresar al Blog</a>
+        </div>
+      </div>
+    </nav>
+
 	<div class="wrapper">
 	
 	<div class="container">
@@ -159,13 +182,7 @@ include("header.php");
     <label class="col-sm-9 text-left">Seleccione tipo</label>
     <div class="col-sm-12">
     <select class="form-control" name="txt_role">
-        <option value="" selected="selected"> - seleccione rol - </option>
         <option value="admin">Admin</option>--> 
-        <!--Si desea registrar un administrador, quite la documentación de la línea de código anterior-->
-        
-        <!--<option value="personal">Personal</option>
-		<option value="usuarios">Usuarios</option>--> <!--Opciones inhabilitadas, no se desea tener usuarios registrados, el blog es universal para cualquier persona-->
-    </select>
     </div>
 </div>
 

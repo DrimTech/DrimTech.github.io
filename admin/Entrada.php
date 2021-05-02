@@ -19,10 +19,15 @@
         <link rel="stylesheet" href=".//assets/css/Entrada.css">
         <style>
 
-            h2{
+            h1, h2{
+                color: white;
                 text-align:center;
             }
             
+            td, tr{
+                color: black;
+            }
+
             table{
                 width:50%;
                 
@@ -37,8 +42,9 @@
                 padding:5px 0;
             }
             
-            
+
             </style>
+
     </head><!--Título de pestaña, importaciones y conexiones-->
 <body style="color: var(--blue);background: var(--gray-dark);">
                 <?php
@@ -62,19 +68,24 @@
                 if(isset($_SESSION['admin_login']))
                 {
                 ?>
-                    Bienvenido,
+
+    <h1>DrimTech</h1><!--Título-->
+
+    <h4 class="center" style="color: white; text-align: center; margin-bottom: -15px;">
+                    Bienvenidos, equipo
                 <?php
                         echo $_SESSION['admin_login'];
                 }
                 ?>
-    <h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
+    </h4>
+    <br>
+
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
-        <div class="container"><a class="navbar-brand" href="index.html">DrimTech Blog</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="indexadmin.php">Volver al Dashboard</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Vista Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Ver publicaciones</a></li>
-                    <a href="../cerrar_sesion.php"><button class="btn btn-danger text-left"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+                    <li class="nav-item"><a class="nav-link" href="#">Ver publicaciones</a></li>
                     
                 </ul><!--Lista de elementos de la Navigation Bar (Barra de navegación)-->
                 
@@ -82,12 +93,14 @@
         </div>
     </nav><!--Barra de navegación/elementos enlazables-->
     <br>
-    
+    <br>
     <h2>Nueva entrada</h2>
+
 <form action="Insertar Contenido.php" method="post" enctype="multipart/form-data" name="form1">
-<table >
+<hr color= white width= 40%>
+<table>
 <tr>
-  <td>Título: 
+  <td>Título:
     <label for="campo_titulo"></label></td>
   <td><input type="text" name="campo_titulo" id="campo_titulo"></td>
   
@@ -96,6 +109,7 @@
   <tr><td>Cuerpo:
     <label for="area_comentarios"></label></td>
     <td><textarea name="area_comentarios" id="area_comentarios" rows="10" cols="50"></textarea></td>
+
     </tr>
     <input type="hidden" name="MAX_TAM" value="2097152">
   <tr>
@@ -106,23 +120,13 @@
     <tr>
     <td colspan="2" align="center">  
     <input type="submit" class="btn btn-light action-button" name="btn_enviar" id="btn_enviar" value="Enviar"></td></tr>
-  <tr><td colspan="2" align="center"><a href="Mostrar Blog.php">Página de visualización del blog</a></td></tr>
   
   </table>
 </form>
+
 <p>&nbsp;</p>
-<footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
-    <div class="social"><a href="#"><i class="icon ion-social-instagram" style="border-color: var(--blue);"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>            
-    <ul class="list-inline">
-        <li class="list-inline-item"><a href="#" >Home</a></li>
-        <li class="list-inline-item"><a href="#" >Servicios</a></li>
-        <li class="list-inline-item"><a href="#" >Sobre nosotros</a></li>
-        <li class="list-inline-item"><a href="#" >T&eacute;rminos</a></li>
-        <li class="list-inline-item"><a href="#" >Pol&iacute;tica de privacidad</a></li>
-    </ul><!--Términos y condiciones, servicios, sobre nosotros, privacidad-->
-    
-    <p class="copyright">DrimTeam Technlogies© 2021, All Rights Reserved</p>
-</footer><!--Footer, pie de página, redes sociales y contacto-->
+
+
 </section><!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
 </body>
 </html>

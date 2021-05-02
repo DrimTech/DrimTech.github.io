@@ -2,10 +2,10 @@
 -- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 27, 2021 at 07:10 PM
--- Server version: 5.7.24
--- PHP Version: 7.4.1
+-- Servidor: localhost:3306
+-- Tiempo de generación: 02-05-2021 a las 03:49:02
+-- Versión del servidor: 5.7.24
+-- Versión de PHP: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `php_multiplelogin`
+-- Base de datos: `php_multiplelogin`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mainlogin`
+-- Estructura de tabla para la tabla `mainlogin`
 --
 
 CREATE TABLE `mainlogin` (
@@ -37,31 +37,32 @@ CREATE TABLE `mainlogin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `mainlogin`
+-- Volcado de datos para la tabla `mainlogin`
 --
 
 INSERT INTO `mainlogin` (`id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'DrimTech', 'DrimTeamAdmin', 'system32notfoundfory', 'admin');
+(1, 'papi', 'papi', 'admin', 'admin'),
+(2, 'DrimTech', 'drimtech@drimtech.com', '123tamarindo', 'admin');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `mainlogin`
+-- Indices de la tabla `mainlogin`
 --
 ALTER TABLE `mainlogin`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `mainlogin`
+-- AUTO_INCREMENT de la tabla `mainlogin`
 --
 ALTER TABLE `mainlogin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

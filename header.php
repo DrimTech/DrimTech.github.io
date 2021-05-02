@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Regresar al Blog</a>
+          <a class="navbar-brand" href="indexadmin.php">Regresar al Dashboard</a>
         </div>
       </div>
     </nav>

@@ -33,9 +33,15 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+    h1, h2, h3, h4 {
+    	color: white;
+    }
+    
 </style>
 </head>
-	<body>
+
+	<body style="background-color: #343a40;">
 <?php include("../header.php");?>
 	
 	<div class="wrapper">
@@ -45,7 +51,7 @@
 		<div class="col-lg-12">
 		 
 			<center>
-				<h1>Pagina Administrativa</h1>
+				<h1>Página Administrativa</h1>
 				
 				<h3>
 				<?php
@@ -77,8 +83,11 @@
 				</h3>
 					
 			</center>
-			<a href="../cerrar_sesion.php"><button class="btn btn-danger text-left"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+
+			<!--<a href="../cerrar_sesion.php"><button class="btn btn-danger text-left"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a> 						-->
             <hr>
+            <br>
+            <br>
 		</div>
 		
 		<br><br><br>

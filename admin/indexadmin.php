@@ -25,16 +25,6 @@
                 {
                     header("location: ../index.php");  
                 }
-
-                if(isset($_SESSION['personal_login']))  
-                {
-                    header("location: ../personal/personal_portada.php");   
-                }
-
-                if(isset($_SESSION['usuarios_login']))  
-                {
-                    header("location: ../usuarios/usuarios_portada.php");
-                }
                 
                 if(isset($_SESSION['admin_login']))
                 {
@@ -42,9 +32,9 @@
 
     <div style="margin-top: 0px; background-color: #6c757d; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; padding-bottom: 10px">
     <h4 class="center" style="color: white; text-align: center; margin-bottom: -15px;">
-                    Bienvenidos, equipo
-                <?php
-                        echo DrimTech;
+                    Bienvenidos, Equipo
+                <?php 
+                        echo "DrimTech";
                 }
                 ?>
     </h4>
@@ -68,6 +58,10 @@
 		<tr>
             <td><button style="color: white"><a href="#" title="Administrar todas las publicaciones"> Lista de publicaciones</button></td></a>
 		</tr>
+
+        <tr>
+            <td><button style="color: white"><a href="registro.php" title="Registre a un nuevo administrador">Registrar nuevo administrador</button></td></a>
+        </tr>
 
         <tr>
             <td><button style="color: white"><a href="admin_portada.php" title="Administra a los usuarios registrados">Administrar usuarios</button></td></a>

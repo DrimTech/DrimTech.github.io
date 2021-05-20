@@ -42,6 +42,7 @@
 	<body>
 
 <?php
+
 require_once 'DBconect.php';
 session_start();
 if(isset($_SESSION["admin_login"]))	// Si la sesión del admin está abierta entonces:
@@ -183,7 +184,7 @@ if(isset($_REQUEST['btn_login']))
 
 
 <div class="login-form">
-<center><h2 style="color: white;">Iniciar sesión</h2></center>
+<center><h2 style="color: white;">Iniciar sesión: administrador</h2></center>
 <form method="post" class="form-horizontal">
   <div class="form-group">
   <label class="col-sm-6 text-left">Email</label>
@@ -199,7 +200,7 @@ if(isset($_REQUEST['btn_login']))
   </div>
   </div>
       
-  <div class="form-group">
+  <div hidden class="form-group">
       <label class="col-sm-6 text-left">Rol</label>
       <div class="col-sm-12">
       <select class="form-control" name="txt_role">

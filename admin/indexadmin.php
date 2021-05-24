@@ -45,37 +45,52 @@
     </div>
 
     <br>
-        
-	<table>
+    <section class="container mt-5 w-75">
+    <div class="row">
+     <div class="col">
+       <div class="p-3 pb-5 bg-secondary text-light">
+         <h4>Nueva publicación</h4>
+         <small>Hacer nueva publicacion para el blog</small><br>
+         <a href="Entrada.php" class="btn btn-primary float-end">Entrar</a>
+        </div>
+      </div>
+      <div class="col">
+       <div class="p-3 pb-5 bg-secondary text-light">
+         <h4>Ver Blog</h4>
+         <small>Vista de el blog en modo usuario</small><br>
+         <a href="../index.html" class="btn btn-primary float-end">Entrar</a>
+        </div>
+      </div>
+    </div>
+ </section>
+ <section class="container mt-5 w-75">
+ <div class="col">
+    <div class="row">
+       <div class="p-3 pb-5 bg-secondary text-light">
+         <h4>Lista de publicacion</h4>
+         <small>Table administradora de las publicaciones</small><br>
+         <a href="#" class="btn btn-primary float-end">Entrar</a>
+        </div>
+      </div>
+ </section>
+<!--<section class="container mt-5 w-75">
+ <div class="col">
+    <div class="row">
+       <div class="p-3 pb-5 bg-secondary text-light">
+         <h4>Listas de usuario</h4>
+         <small>Tabla administradora de usuarios </small><br>
+         <a href="" class="btn btn-primary float-end">Entrar</a>
+        </div>
+      </div>
+ </section>-->
+ <br>
+ <br>
 
-        <tr>
-            <td><button style="color: white"><a href="Entrada.php" title="Hacer nueva publicación para el blog">Nueva publicación</button></td></a>
-		</tr>
-		<tr>
-           <td><button style="color: white"><a href="../index.html" title="Ver blog en modo usuario">Ver Blog</button></td></a>
-		</tr>
-
-		<tr>
-            <td><button style="color: white"><a href="#" title="Administrar todas las publicaciones"> Lista de publicaciones</button></td></a>
-		</tr>
-
-        <tr>
-            <td><button style="color: white"><a href="registro.php" title="Registre a un nuevo administrador">Registrar nuevo administrador</button></td></a>
-        </tr>
-
-        <tr>
-            <td><button style="color: white"><a href="admin_portada.php" title="Administra a los usuarios registrados">Administrar usuarios</button></td></a>
-        </tr>
-
-        <tr>
-            <td><button style="color: white"><a href="../cerrar_sesion.php" title="Cierre la sesión activa de manera inmediata">Cerrar sesión</button></td></a>
-        </tr>
-
-        <br>
-        <br>
-        <br>
-	</table>
-    </section><!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
+ <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" type="button" ><a href="../cerrar_sesion.php">Cerrar Sesión</button></a> 
+</div> 
+	
+    <!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
 
 
     <script src="assets/js/jquery.min.js"></script>

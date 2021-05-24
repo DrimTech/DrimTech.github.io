@@ -2,7 +2,7 @@
 $db_host="localhost"; //localhost server 
 $db_user="root";	// usuario de la base de datos
 $db_password="";	// contraseña del usuario de la base de datos
-$db_name="php_multiplelogin";	// nombre de la base de datos
+$db_name="php_multiplelogin";	// nombre de la base de datos de usuarios
 
 try
 {

@@ -8,42 +8,8 @@
         <link rel="icon" href="../browser.png">
         <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
-        <link rel="stylesheet" href="../assets/css/Article-List.css">
-        <link rel="stylesheet" href="../assets/css/Footer-Basic.css">
-        <link rel="stylesheet" href="../assets/css/Highlight-Phone.css">
         <link rel="stylesheet" href="../assets/css/Navigation-with-Search.css">
-        <link rel="stylesheet" href="../assets/css/Sidebar-Menu-1.css">
-        <link rel="stylesheet" href="../assets/css/Sidebar-Menu.css">
-        <link rel="stylesheet" href="../assets/css/styles.css">
-        <link rel="stylesheet" href=".//assets/css/Entrada.css">
-        <style>
-
-            h1, h2{
-                color: white;
-                text-align:center;
-            }
-            
-            td, tr{
-                color: black;
-            }
-
-            table{
-                width:50%;
-                
-                margin:auto;
-                background-color:rgb(218, 218, 218);
-                border:solid 2px #ffffff;
-                padding:5px;
-                
-            }
-            
-            td{
-                padding:5px 0;
-            }
-            
-
-            </style>
+        <link rel="stylesheet" href="../assets/css/Entrada.css">
 
     </head><!--Título de pestaña, importaciones y conexiones-->
 <body style="color: var(--blue);background: var(--gray-dark);">
@@ -99,26 +65,37 @@
 <form action="Insertar Contenido.php" method="post" enctype="multipart/form-data" name="form1">
 <hr color= white width= 40%>
 <table>
+
 <tr>
   <td>Título:
     <label for="campo_titulo"></label></td>
-  <td><input type="text" name="campo_titulo" id="campo_titulo"></td>
-  
-  
-  </tr>
-  <tr><td>Cuerpo:
-    <label for="area_comentarios"></label></td>
-    <td><textarea name="area_comentarios" id="area_comentarios" rows="10" cols="50"></textarea></td>
+  <td><input type="text" name="campo_titulo" id="campo_titulo" style="width: 105%; position: relative; right: 60px;"></td> 
+</tr>
 
-    </tr>
+<tr><td>Cuerpo:
+    <label for="area_comentarios"></label></td>
+    <td><textarea name="area_comentarios" id="area_comentarios" rows="10" cols="50" style="width: 105%; position: relative; right: 60px;"></textarea></td>
+</tr>
+
+<tr><td>
+<select name="seleccion" id="seleccion" class="form-select form-select-sm" aria-label=".form-select-sm example" style="width: 100%; text-align: center; position: relative; left: 170px;">
+  <option selected>--Seleccione categoría--</option>
+  <option value="noticias">Noticias</option>
+  <option value="hardware">Hardware</option>
+  <option value="software">Software</option>
+  <option value="otros">Otros</option>
+</select>
+
+</td></tr>
+
     <input type="hidden" name="MAX_TAM" value="2097152">
   <tr>
-  <td colspan="2" align="center">Seleccione una imagen con tamaño inferior a 2 MB</td></tr>
+  <td colspan="2">Seleccione una imagen con tamaño inferior a 2 MB</td></tr>
   <tr>
     <td colspan="2" align="left"><input type="file" class="btn btn-light action-button" name="imagen" id="imagen"></td>
     </tr>
     <tr>
-    <td colspan="2" align="center">  
+    <td colspan="2">  
     <input type="submit" class="btn btn-light action-button" name="btn_enviar" id="btn_enviar" value="Enviar"></td></tr>
   
   </table>

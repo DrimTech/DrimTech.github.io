@@ -104,17 +104,17 @@
                                     <thead>
                                         <tr>
                                             <th width="4%">ID</th>
-                                            <th width="18%">Usuario</th>
-                                            <th width="24%">Email</th>
-                                            <th width="19%">Rol</th>
-                                            <th width="24%">Password</th>
-											<th colspan="2">Opciones</th>
+                                            <th width="18%">Título</th>
+                                            <th width="24%">Fecha de post</th>
+                                            <th width="19%">Categoría</th>
+                                            <th width="4%">Editar</th>
+                                            <th width="7%">Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 									<?php
-									require_once '../DBconect.php';
-									$select_stmt=$db->prepare("SELECT id,username,email,role FROM mainlogin");
+									require_once 'DBcontenidos_connect.php';
+									$select_stmt=$db->prepare("SELECT id,Titulo,Fecha,categoria FROM contenido");
 									$select_stmt->execute();
 									
 									while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
@@ -122,10 +122,9 @@
 									?>
                                         <tr>
                                             <td><?php echo $row["id"]; ?></td>
-                                            <td><?php echo $row["username"]; ?></td>
-                                            <td><?php echo $row["email"]; ?></td>
-                                            <td><?php echo $row["role"]; ?></td>
-                                            <td>*******</td>
+                                            <td><?php echo $row["Titulo"]; ?></td>
+                                            <td><?php echo $row["Fecha"]; ?></td>
+                                            <td><?php echo $row["categoria"]; ?></td>
 											<td width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
 											<td width="7%"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
                                         </tr>

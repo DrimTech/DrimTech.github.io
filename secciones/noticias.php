@@ -38,18 +38,50 @@
         </div>
     </nav><!--Barra de navegación/elementos enlazables-->
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <?php 
+
+        $miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
+
+        if(!$miconexion) {
+
+            echo "La conexion ha fallado: " . mysqli_error();
+            exit();
+        }
+
+        $miconsulta = "SELECT * FROM `contenido` WHERE 'noticias' = categoria ORDER BY FECHA DESC";
+
+        if($resultado = mysqli_query($miconexion, $miconsulta)) {
+
+            while($registro = mysqli_fetch_assoc($resultado)) {
+
+                echo "<h3>" . $registro['Titulo'] . "</h3>";
+
+                echo "<h4>" . $registro['Fecha'] . "</h4>";
+
+                echo "<div style = 'width: 400px'>" . $registro['Comentario'] . "</div><br><br>";
+
+                if($registro['Imagen']!=""){
+
+                    echo "<img src='imagenes/" . $registro['Imagen'] . "' width='300px'>";
+
+                }
+
+                echo "<hr>";
+
+            }
+
+
+
+
+        }
+
+
+
+
+    ?>
+
+
+
         <footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
                       
             <ul class="list-inline">

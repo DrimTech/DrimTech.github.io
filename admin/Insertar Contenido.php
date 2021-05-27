@@ -7,7 +7,14 @@
 
 <?php
 
-require_once 'DBcontenidos_connect.php';
+	$miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
+
+	if(!$miconexion) {
+
+		echo "La conexion ha fallado: " . mysqli_error();
+		exit();
+	}
+
 
 	if($_FILES['imagen']['error']){
 		switch ($_FILES['imagen']['error']) {
@@ -33,7 +40,7 @@ require_once 'DBcontenidos_connect.php';
 
 		if((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))) {
 
-			$destino_de_ruta ="postsimg/";
+			$destino_de_ruta ="../secciones/imagenes/";
 
 			move_uploaded_file($_FILES['imagen']['tmp_name'], $destino_de_ruta . $_FILES['imagen']['name']);
 
@@ -61,6 +68,8 @@ require_once 'DBcontenidos_connect.php';
 	mysqli_close($miconexion);
 
 	echo "<br> Se ha agregado el comentario con éxito,<br><br>";
+	header("refresh:2;indexadmin.php");
+
 ?>
 
 </body>

@@ -37,7 +37,9 @@
             </div>
         </div>
     </nav><!--Barra de navegación/elementos enlazables-->
-
+    <br>
+    <h1 style="border-right-style: none;text-align: center;color: black;">Publicaciones</h1>
+    <br>
     <?php 
 
         $miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
@@ -54,17 +56,36 @@
 
             while($registro = mysqli_fetch_assoc($resultado)) {
 
-                echo "<h3>" . $registro['Titulo'] . "</h3>";
-
-                echo "<h4>" . $registro['Fecha'] . "</h4>";
-
-                echo "<div style = 'width: 400px'>" . $registro['Comentario'] . "</div><br><br>";
-
                 if($registro['Imagen']!=""){
 
-                    echo "<img src='imagenes/" . $registro['Imagen'] . "' width='300px'>";
+                        echo "
 
+                        <section align: 'center' style='color: black; background: white; border-radius: 20px;padding-top: 10px; padding-bottom: 10px; ''>
+                            <div class='container'>
+                                <div class='row'>
+                                    <div class='col-md-8'>
+                                        <div class='intro'>
+                                            <h2>" . $registro['Titulo'] . "</h2>
+                                            <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
+                                            <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 70) . "...</p>
+                                            <br>
+                                            <a class='btn btn-primary' role='button' href='' style='background: var(--gray);color: var(--light);border-left-color: var(--light);''>Ver más</a>
+                                        </div>
+
+                                    </div>
+                                    <div class='col-sm-4'>
+                                        <div class='d-none d-md-block'>
+                                        <img src='imagenes/" . $registro['Imagen'] . "' style= 'width: 100%; height: 250px; border-radius: 15px;'>
+
+                                            <div class='screen'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <br><br>";
                 }
+
 
                 echo "<hr>";
 

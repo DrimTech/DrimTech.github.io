@@ -68,6 +68,7 @@
 	mysqli_close($miconexion);
 
 	echo "<br> Se ha agregado el comentario con éxito,<br><br>";
+	echo "Redireccionando al dashboard...";
 	header("refresh:2;indexadmin.php");
 
 ?>

@@ -107,6 +107,7 @@
                                             <th width="18%">Título</th>
                                             <th width="24%">Fecha de post</th>
                                             <th width="19%">Categoría</th>
+                                            <th width="4%">Ver</th>
                                             <th width="4%">Editar</th>
                                             <th width="7%">Eliminar</th>
                                         </tr>
@@ -125,6 +126,7 @@
                                             <td><?php echo $row["Titulo"]; ?></td>
                                             <td><?php echo $row["Fecha"]; ?></td>
                                             <td><?php echo $row["categoria"]; ?></td>
+                                            <td width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td>
 											<td width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
 											<td width="7%"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
                                         </tr>

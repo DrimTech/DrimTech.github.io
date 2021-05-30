@@ -17,11 +17,7 @@
     <link rel="stylesheet" href="../assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
 </head><!--Título de pestaña, importaciones y conexiones-->
-
-<body style="color: var(--blue);background: var(--gray-dark);">
-
-    <h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
+<nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
         <div class="container"><a class="navbar-brand" href="../index.html">DrimTech Blog</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
@@ -37,8 +33,11 @@
             </div>
         </div>
     </nav><!--Barra de navegación/elementos enlazables-->
+<body style="color: var(--blue);background: var(--gray-dark);">
+ 
     <br>
-    <h1 style="border-right-style: none;text-align: center;color: black;">Publicaciones</h1>
+    <h1 style="border-right-style: none;text-align: center;color: white;" class="fw-bold">NOTICIAS</h1>
+    <center><hr style="color: var(--gray); background: var(--gray);" width=40%></center>
     <br>
     <?php 
 
@@ -60,22 +59,22 @@
 
                         echo "
 
-                        <section align: 'center' style='color: black; background: white; border-radius: 20px;padding-top: 10px; padding-bottom: 10px; ''>
+                        <section align: 'center' style='color: black; background: var(--gray-dark); padding-top: 10px; padding-bottom: 10px; ''>
                             <div class='container'>
                                 <div class='row'>
-                                    <div class='col-md-8'>
+                                    <div class='col-md-7 bg-secondary text-light'>
                                         <div class='intro'>
                                             <h2>" . $registro['Titulo'] . "</h2>
                                             <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
                                             <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 70) . "...</p>
                                             <br>
-                                            <a class='btn btn-primary' role='button' href='' style='background: var(--gray);color: var(--light);border-left-color: var(--light);''>Ver más</a>
+                                            <a class='btn btn-primary float-end' role='button' href=''>Ver más</a>
                                         </div>
 
                                     </div>
-                                    <div class='col-sm-4'>
-                                        <div class='d-none d-md-block'>
-                                        <img src='imagenes/" . $registro['Imagen'] . "' style= 'width: 100%; height: 250px; border-radius: 15px;'>
+                                    <div class='col-sm-4 ' >
+                                        <div class='d-none d-md-block ' >
+                                        <img src='imagenes/" . $registro['Imagen'] . "' style= 'width: 100%; height: 250px; '>
 
                                             <div class='screen'></div>
                                         </div>

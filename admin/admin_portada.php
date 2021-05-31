@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-<title>Administrador de usuarios</title>
+<title>Administrador de publicaciones</title>
 
 <link rel="icon" href="../browser.png">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
@@ -12,6 +12,7 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 
 <style type="text/css">
+
 	.login-form {
 		width: 340px;
     	margin: 20px auto;
@@ -37,115 +38,114 @@
     h1, h2, h3, h4 {
     	color: white;
     }
+
+    th, .centro {
+    	text-align: center;
+    }
     
-</style>
+</style> <!-- Estilos del form que presenta la lista de publicaciones -->
 </head>
 
-	<body style="background-color: #343a40;">
-<?php include("../header.php");?>
-	
-	<div class="wrapper">
-	
-	<div class="container">
-			
-		<div class="col-lg-12">
-		 
-			<center>
-				<h1>Página Administrativa</h1>
-				
-				<h3>
-				<?php
-				session_start();
+<body style="background-color: #343a40;">
 
-				if(!isset($_SESSION['admin_login']))	
-				{
-					header("location: ../index.php");  
-				}
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="indexadmin.php">Regresar al Dashboard</a>
+    </div>
+  </div>
+</nav> <!-- Navbar sencilla que regresa al Dashboard -->
 
-				if(isset($_SESSION['personal_login']))	
-				{
-					header("location: ../personal/personal_portada.php");	
-				}
+<div class="wrapper">
 
-				if(isset($_SESSION['usuarios_login']))	
-				{
-					header("location: ../usuarios/usuarios_portada.php");
-				}
-				
-				if(isset($_SESSION['admin_login']))
-				{
-				?>
-					Bienvenido,
-				<?php
-						echo $_SESSION['admin_login'];
-				}
-				?>
-				</h3>
-					
-			</center>
-
-			<!--<a href="../cerrar_sesion.php"><button class="btn btn-danger text-left"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a> 						-->
-            <hr>
-            <br>
-            <br>
-		</div>
+<div class="container">
 		
-		<br><br><br>
-		<div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Panel de usuarios
+	<div class="col-lg-12"> 
+
+		<center>
+			<h1>Página Administrativa</h1>
+			<h3>
+			<?php
+			session_start();
+
+			if(!isset($_SESSION['admin_login']))	
+			{
+				header("location: ../logadmin.php");  
+			} #Comprueba que el admin esté logueado, si no lo está lo manda a iniciar sesión
+			?>
+            
+			</h3>
+		</center>
+
+		<!--<a href="../cerrar_sesion.php"><button class="btn btn-danger text-left"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>-->
+		<hr><br><br>
+	</div>
+
+	<br><br><br>
+
+	<div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"> Panel de publicaciones</div>
+                    <!-- Titulo del table -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                
+                                <thead>
+                                    <tr>
+                                        <th width="3%" style="text-align: center;">ID</th>
+                                        <th width="15%">Título</th>
+                                        <th width="13%">Fecha de post</th>
+                                        <th width="13%">Categoría</th>
+                                        <th width="6%">Ver</th>
+                                        <th width="6%">Editar</th>
+                                        <th width="6%">Eliminar</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+								<?php
+								require_once 'DBcontenidos_connect.php';
+								$select_stmt=$db->prepare("SELECT id,Titulo,Fecha,categoria FROM contenido");
+								$select_stmt->execute();
+								
+								while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+								{
+
+								?>
+                                    <tr>
+                                        <td style="text-align: center;"><?php echo $row["id"]; ?></td>
+                                        <td><?php echo $row["Titulo"]; ?></td>
+                                        <td class="centro"><?php echo $row["Fecha"]; ?></td>
+                                        <td class="centro"><?php echo $row["categoria"]; ?></td>
+                                        <td class="centro"width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td>
+										<td class="centro" width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
+										<td class="centro" width="7%"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+                                    </tr>
+								<?php 
+								}
+								?>
+                                </tbody>
+                                
+                            </table> 
                         </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th width="4%">ID</th>
-                                            <th width="18%">Título</th>
-                                            <th width="24%">Fecha de post</th>
-                                            <th width="19%">Categoría</th>
-                                            <th width="4%">Ver</th>
-                                            <th width="4%">Editar</th>
-                                            <th width="7%">Eliminar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-									<?php
-									require_once 'DBcontenidos_connect.php';
-									$select_stmt=$db->prepare("SELECT id,Titulo,Fecha,categoria FROM contenido");
-									$select_stmt->execute();
-									
-									while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
-									{
-									?>
-                                        <tr>
-                                            <td><?php echo $row["id"]; ?></td>
-                                            <td><?php echo $row["Titulo"]; ?></td>
-                                            <td><?php echo $row["Fecha"]; ?></td>
-                                            <td><?php echo $row["categoria"]; ?></td>
-                                            <td width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td>
-											<td width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
-											<td width="7%"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
-                                        </tr>
-									<?php 
-									}
-									?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
+                        <!-- tabla responsiva -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- panel del body -->
                 </div>
+                <!-- panel -->
+            </div>
+	
+</div>
 		
-	</div>
-			
-	</div>
-										
-	</body>
+</div>
+									
+</body>
 </html>

@@ -1,3 +1,9 @@
+/*
+------------------------------------------------
+Estilos de la tabla y formato de Entrada
+--------------------------------------------------
+*/
+
 .entrada
 {
     text-align: left;
@@ -10,7 +16,7 @@
 
 h1, h2{
 	color: white;
-	text-align:center;
+	text-align: center;
 }
             
 td, tr{

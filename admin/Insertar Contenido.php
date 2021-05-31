@@ -69,9 +69,12 @@
 
 	echo "<br> Se ha agregado el comentario con éxito,<br><br>";
 	echo "Redireccionando al dashboard...";
-	header("refresh:2;indexadmin.php");
+	header("refresh:2;indexadmin.php"); # Redirige al dashboard
 
 ?>
 
 </body>
 </html>
+
+<!-- Esta página es la que procesa y almacena la información que se subirá
+a la base de datos blog_posts.-->

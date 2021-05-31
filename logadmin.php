@@ -92,22 +92,10 @@ if(isset($_REQUEST['btn_login']))
 						{
 							case "admin":
 								$_SESSION["admin_login"]=$email;			
-								$loginMsg="Administrador logeado con éxito.";	
-								header("refresh:3;admin/indexadmin.php");	
+								$loginMsg="Administrador logeado con éxito. Redirigiendo, espere...";	
+								header("refresh:2;admin/indexadmin.php");	
 								break;
-								
-							case "personal";
-								$_SESSION["personal_login"]=$email;				
-								$loginMsg="Personal: Inicio sesión con éxito";		
-								header("refresh:3;personal/personal_portada.php");	
-								break;
-								
-							case "usuarios":
-								$_SESSION["usuarios_login"]=$email;				
-								$loginMsg="Usuario: Inicio sesión con éxito";	
-								header("refresh:3;usuarios/usuarios_portada.php");		
-								break;
-								
+
 							default:
 								$errorMsg[]="Correo electrónico, contraseña o rol incorrectos.";
 						}
@@ -152,7 +140,7 @@ if(isset($_REQUEST['btn_login']))
           <a class="navbar-brand" href="index.html">Regresar al Blog</a>
         </div>
       </div>
-    </nav>
+    </nav> <!-- Barra de navegación para "cancelar" inicio de sesión -->
 	
 	<div class="wrapper">
 	
@@ -185,38 +173,38 @@ if(isset($_REQUEST['btn_login']))
 
 <div class="login-form">
 <center><h2 style="color: white;">Iniciar sesión: administrador</h2></center>
-<form method="post" class="form-horizontal">
-  <div class="form-group">
-  <label class="col-sm-6 text-left">Email</label>
-  <div class="col-sm-12">
-  <input type="text" name="txt_email" class="form-control" placeholder="Ingrese su email" />
-  </div>
-  </div>
-      
-  <div class="form-group">
-  <label class="col-sm-6 text-left">Contraseña</label>
-  <div class="col-sm-12">
-  <input type="password" name="txt_password" class="form-control" placeholder="Ingrese su contraseña" />
-  </div>
-  </div>
-      
-  <div hidden class="form-group">
-      <label class="col-sm-6 text-left">Rol</label>
-      <div class="col-sm-12">
-      <select class="form-control" name="txt_role">
-          <option value="admin">Admin</option>
+	<form method="post" class="form-horizontal">
+	  <div class="form-group">
+		  <label class="col-sm-6 text-left">Email</label>
+		  <div class="col-sm-12">
+		  	<input type="text" name="txt_email" class="form-control" placeholder="Ingrese su email" />
+		  </div>
+	  </div>
+	      
+	  <div class="form-group">
+		  <label class="col-sm-6 text-left">Contraseña</label>
+		  <div class="col-sm-12">
+		  	<input type="password" name="txt_password" class="form-control" placeholder="Ingrese su contraseña" />
+		  </div>
+	  </div>
 
-      </select>
+	  <div hidden class="form-group">
+      <label class="col-sm-6 text-left">Rol</label>
+	      <div class="col-sm-12">
+	      <select class="form-control" name="txt_role">
+	          <option value="admin">Admin</option>
+
+	      </select>
       </div>
-  </div>
-  
-  <div class="form-group">
-  <div class="col-sm-12">
-  <input type="submit" name="btn_login" class="btn btn-success btn-block" value="Entrar">
-  </div>
-  </div>
-  
-</form>
+	  </div> <!-- Selección de roles oculta, establecida por defecto en admin -->
+	  
+	  <div class="form-group">
+	  <div class="col-sm-12">
+	  <input type="submit" name="btn_login" class="btn btn-success btn-block" value="Entrar">
+	  </div>
+	  </div>
+	  
+	</form>
 </div>
 <!--Cierra div login-->
 		</div>

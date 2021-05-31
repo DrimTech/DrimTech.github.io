@@ -2,7 +2,7 @@
 $db_host="localhost"; //localhost server 
 $db_user="root";	// usuario de la base de datos
 $db_password="";	// contraseña del usuario de la base de datos
-$db_name="blog_posts";	// nombre de la base de datos de usuarios
+$db_name="blog_posts";	// nombre de la base de datos que contiene los posts
 
 try
 {

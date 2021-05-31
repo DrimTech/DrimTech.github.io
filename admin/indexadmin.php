@@ -23,8 +23,8 @@
 
                 if(!isset($_SESSION['admin_login']))    
                 {
-                    header("location: ../index.php");  
-                }
+                    header("location: ../logadmin.php");  
+                } #Comprueba que el admin esté logueado, si no lo está lo manda a iniciar sesión
                 
                 if(isset($_SESSION['admin_login']))
                 {
@@ -45,6 +45,8 @@
     </div>
 
     <br>
+
+<!-- Comienza dashboard -->
     <section class="container mt-5 w-75">
     <div class="row">
      <div class="col">
@@ -74,27 +76,13 @@
         </div>
       </div>
  </section>
+<!-- Termina dashboard -->
 
-<!--<section class="container mt-5 w-75">
- <div class="col">
-    <div class="row">
-       <div class="p-3 pb-5 bg-secondary text-light">
-         <h4>Listas de usuario</h4>
-         <small>Tabla administradora de usuarios </small><br>
-         <a href="" class="btn btn-primary float-end">Entrar</a>
-        </div>
-      </div>
- </section>-->
-
- <br>
- <br>
+ <br><br>
 
  <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-primary" type="button" ><a href="../cerrar_sesion.php">Cerrar Sesión</button></a> 
-</div> 
-	
-    <!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
-
+  <button class="btn btn-primary" type="button" ><a href="../cerrar_sesion.php">Cerrar Sesión</button></a> <!-- Botón para cerrar sesión -->
+</div> <!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

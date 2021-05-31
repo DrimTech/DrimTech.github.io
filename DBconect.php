@@ -15,3 +15,5 @@ catch(PDOEXCEPTION $e)
 }
 
 ?>
+
+<!-- Conexión a la base de datos donde se encuentran los administradores -->

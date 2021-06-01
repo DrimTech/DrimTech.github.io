@@ -26,38 +26,38 @@
     }
 
     $miconsulta = "SELECT * FROM `contenido` WHERE 'hardware' = categoria ORDER BY FECHA DESC"; # Esta consulta ordena la página para que se muestre por categoría y fecha más reciente de publicación
-
     if($resultado = mysqli_query($miconexion, $miconsulta)) {
-        while($registro = mysqli_fetch_assoc($resultado)) {
-            if($registro['Imagen']!=""){
-                    echo "
-                    <section align: 'center' style='color: black; background: var(--gray-dark); padding-top: 5px;'>
-                        <div class='container'>
-                             <div class='row'>
-                                <div class='col-md-7 bg-secondary text-light'>
-                                    <div>
+            while($registro = mysqli_fetch_assoc($resultado)) {
+                if($registro['Imagen']!=""){
+                        echo "
+                        <section align: 'center' style='color: black; background: var(--gray-dark); padding-top: 5px;'>
+                            <div class='container'>
+                                <div class='row'>
+                                    <div class='col-md-7 bg-secondary text-light'>
+                                        <div>
+                                            <br>
+                                            <h3>" . substr($registro['Titulo'], 0, 100) . "...</h3>
+                                            <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
+                                            <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 65) . "...</p>
+                                            <br>
+                                            <a class='btn btn-primary float-end' role='button' href='''>Ver más</a>
+                                        </div>
                                         <br>
-                                        <h3>" . substr($registro['Titulo'], 0, 31) . "...</h3>
-                                        <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
-                                        <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 70) . "...</p>
-                                        <br>
-                                        <a class='btn btn-primary float-end' role='button' href='''>Ver más</a>
                                     </div>
-                                    <br>
-                                </div>
-                                <div class='col-sm-4'>
-                                    <div class='d-none d-md-block item' >
-                                    <img class='image-fluid' src='imagenes/" . $registro['Imagen'] . "'style= 'width: 140%; height: 280px; object-fit: scale-down; background: none; border-style: solid double solid none;'>
+                                    <div class='col-sm-4'>
+                                        <div class='d-none d-md-block item' >
+                                        <img class='image-fluid' src='imagenes/" . $registro['Imagen'] . "'style= 'width: 140%; height: 280px; object-fit: scale-down; background: none; border-style: solid double solid none;'>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <br><br>";
+                        </section>
+                        <br><br>";
+                }
+                echo "<hr>";
             }
-            echo "<hr>";
         }
-    }
+    
 ?> <!-- Este es el formato que se le da al listado de publicaciones -->
 
 <?php require_once("../footer.php"); ?> <!-- Llama al footer -->

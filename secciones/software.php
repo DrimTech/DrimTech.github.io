@@ -39,7 +39,7 @@
                                         <br>
                                         <h3>" . substr($registro['Titulo'], 0, 100) . "...</h3>
                                         <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
-                                        <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 70) . "...</p>
+                                        <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 65) . "...</p>
                                         <br>
                                         <a class='btn btn-primary float-end' role='button' href='''>Ver más</a>
                                     </div>

@@ -1,7 +1,7 @@
 <footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
               
     <ul class="list-inline">
-        <li class="list-inline-item"><a href="#" >Home</a></li>
+        <li class="list-inline-item"><a href="../index.php" >Home</a></li>
         <li class="list-inline-item"><a href="#" >Servicios</a></li>
         <li class="list-inline-item"><a href="#" >Sobre nosotros</a></li>
         <li class="list-inline-item"><a href="#" >Términos</a></li>

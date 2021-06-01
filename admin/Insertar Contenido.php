@@ -67,11 +67,11 @@
 
 	mysqli_close($miconexion);
 
-	echo "<br> Se ha agregado el comentario con éxito,<br><br>";
-	echo "Redireccionando al dashboard...";
-	header("refresh:2;indexadmin.php"); # Redirige al dashboard
-
 ?>
+<script type="text/javascript">
+	alert("Se ha agregado la publicacion exitosamente");
+	window.location.href='indexadmin.php';
+</script>
 
 </body>
 </html>

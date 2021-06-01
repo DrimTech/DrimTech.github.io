@@ -60,7 +60,7 @@
        <div class="p-3 pb-5 bg-secondary text-light" style="border-radius: 15px;">
          <h4>Ver Blog</h4>
          <small>Vista de el blog en modo usuario</small><br>
-         <a href="../index.html" class="btn btn-primary float-end">Entrar</a>
+         <a href="../index.php" class="btn btn-primary float-end">Entrar</a>
         </div>
       </div>
     </div>

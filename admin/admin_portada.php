@@ -112,11 +112,11 @@
 
                                 <tbody>
 								<?php
-								require_once 'DBcontenidos_connect.php';
-								$select_stmt=$db->prepare("SELECT id,Titulo,Fecha,categoria FROM contenido");
-								$select_stmt->execute();
+								$miconexion = mysqli_connect("localhost", "root", "", "blog_posts");                                ;
+								$query="SELECT * FROM contenido";
+								$result_contenido = mysqli_query($miconexion,$query);
 								
-								while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+								while($row=mysqli_fetch_array($result_contenido))
 								{
 
 								?>
@@ -126,8 +126,8 @@
                                         <td class="centro"><?php echo $row["Fecha"]; ?></td>
                                         <td class="centro"><?php echo $row["categoria"]; ?></td>
                                         <td class="centro"width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td>
-										<td class="centro" width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
-										<td class="centro" width="7%"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+										<td class="centro" width="4%"><button class="btn btn-primary"><a href="editar_entrada.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
+										<td class="centro" width="7%"><button type="button" class="btn btn-danger"><a href="eliminar_entrada.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span></button></td>
                                     </tr>
 								<?php 
 								}

@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <title>Administrador de publicaciones</title>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <link rel="icon" href="../browser.png">
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 <script src="../js/jquery-1.12.4-jquery.min.js"></script>
@@ -125,9 +125,9 @@
                                         <td><?php echo $row["Titulo"]; ?></td>
                                         <td class="centro"><?php echo $row["Fecha"]; ?></td>
                                         <td class="centro"><?php echo $row["categoria"]; ?></td>
-                                        <td class="centro"width="4%"><button class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button></td>
-										<td class="centro" width="4%"><button class="btn btn-primary"><a href="editar_entrada.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button></td>
-										<td class="centro" width="7%"><button type="button" class="btn btn-danger"><a href="eliminar_entrada.php?id=<?php echo $row['id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span></button></td>
+                                        <td class="centro"width="4%"><a href="" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></a></span></td>
+										<td class="centro" width="4%"><a href="editar_entrada.php?id=<?php echo $row['id']?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
+										<td class="centro" width="7%"><a href="eliminar_entrada.php?id=<?php echo $row['id']?>" class = "btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span></td>
                                     </tr>
 								<?php 
 								}

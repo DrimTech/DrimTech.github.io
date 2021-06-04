@@ -20,7 +20,7 @@
 
 <body style="color: var(--blue);background: var(--gray-dark);">
     
-    <h1 style="border-right-style: none;text-align: center;color: var(--light);">DrimTech</h1><!--Título-->
+    <center><img src="/assets/img/Logo_DrimTech.png"  width="600px" height="90px"></center><!--Título-->
     <nav class="navbar sticky-top navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
         <div class="container"><a class="navbar-brand" href="index.php">DrimTech Blog</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -58,7 +58,7 @@
                                  <h2>Highlight</h2>
                                  <br>
                                  <h3>" . substr($registro['Titulo'], 0, 100) . "...</h3>
-                                 <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 60) . "...</p><a class='btn btn-primary' role='button' href='#' style='background: var(--gray);color: var(--light);border-left-color: var(--light);''>Ver más</a>
+                                 <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 60) . "...</p><a class='btn btn-primary' role='button' href='secciones/single.php/ ". $registro['categoria'] .  "?id= ". $registro['id'] . "'; style='background: var(--gray);color: var(--light);border-left-color: var(--light);''>Ver más</a>
                                 <br>
                     </div>
                 </div>
@@ -104,7 +104,7 @@ echo "
             <div class='row articles'>
                 <div class='col-sm-6 col-md-4 item text-light'><a href='#'><img class='image-fluid' src='/secciones/imagenes/" . $registro['Imagen'] . "'style= 'width: 100%; height: 233px; object-fit: scale-down; background: none; '></a>
                     <h3 class='name'>Recientes Hardware</h3>
-                    <h5>" . substr($registro['Titulo'], 0, 50) . "...</h3>
+                    <h5>" . substr($registro['Titulo'], 0, 51) . "...</h3>
                     <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 60) . "...<a class='action' href='/secciones/hardware.php'><i class='fa fa-arrow-circle-right'></i></a></p>
                 </div>
                 <div class='col-sm-6 col-md-4 item text-light'><a href='#'><img class='image-fluid' src='/secciones/imagenes/" . $registro2['Imagen'] . "'style= 'width: 100%; height: 233px; object-fit: scale-down; background: none; '></a>
@@ -124,10 +124,32 @@ echo "
     }
 
 ?> <!--Cuerpo del blog, publicaciones más recientes,-->  
-<?php require_once("footer.php"); ?> <!-- Llama al footer -->    
+<footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
+              
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href="../index.php" >Home</a></li>
+                  <li class="list-inline-item"><a href="#" >Servicios</a></li>
+                  <li class="list-inline-item"><a href="#" >Sobre nosotros</a></li>
+                  <li class="list-inline-item"><a href="#" >Términos</a></li>
+                  <li class="list-inline-item"><a href="#" >Política de privacidad</a></li>
+              </ul><!--Términos y condiciones, servicios, sobre nosotros, privacidad-->
+              
+              <div class="text-center">
+              <h2></h2>
+              <p class="copyright" style="display: inline; margin-right:0px">DrimTeam Technlogies© 2021, All Rights Reserved</p><br>
+              <p class="copyright" style="display: inline; margin-right:0px"><a href="../admin/indexadmin.php" style="color: #aaa; text-decoration: none;">¿Eres Administrador?</p></a>
+              <div>
+          </footer><!--Footer, pie de página, redes sociales y contacto-->
+          
+          <script src="assets/js/jquery.min.js"></script>
+          <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+          <script src="assets/js/Sidebar-Menu.js"></script>
+          
+          <!-- Footer construido para llamarlo en las categorías --> 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/Sidebar-Menu.js"></script>
 
 </body><!--Cuerpo de la página-->
 </html>
+

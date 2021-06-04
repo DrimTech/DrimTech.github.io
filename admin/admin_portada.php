@@ -125,7 +125,7 @@
                                         <td><?php echo $row["Titulo"]; ?></td>
                                         <td class="centro"><?php echo $row["Fecha"]; ?></td>
                                         <td class="centro"><?php echo $row["categoria"]; ?></td>
-                                        <td class="centro"width="4%"><a href="" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></a></span></td>
+                                        <td class="centro"width="4%"><a class='btn btn-primary float-end' href= "/secciones/single_administrador.php?id=<?php echo $row['id']?> "><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></a></span></td>
 										<td class="centro" width="4%"><a href="editar_entrada.php?id=<?php echo $row['id']?>" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></td>
 										<td class="centro" width="7%"><a href="eliminar_entrada.php?id=<?php echo $row['id']?>" class = "btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span></td>
                                     </tr>

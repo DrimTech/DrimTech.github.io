@@ -56,6 +56,8 @@ $categoria  = '';
                     <li class="nav-item"><a class="nav-link" href="/secciones/hardware.php">Hardware</a></li>
                     <li class="nav-item"><a class="nav-link" href="/secciones/software.php">Software<br></a></li>
                     <li class="nav-item"><a class="nav-link" href="/secciones/otros.php">Otros<br></a></li>
+                    <br>
+                    <li class="nav-item"><a class="btn btn-success" href="/admin/indexadmin.php">Regresar a Dashboard<br></a></li>
                 </ul><!--Lista de elementos de la Navigation Bar (Barra de navegación)-->
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"></label></div>

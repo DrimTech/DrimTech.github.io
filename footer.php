@@ -9,10 +9,10 @@
     </ul><!--Términos y condiciones, servicios, sobre nosotros, privacidad-->
     
     <div class="text-center">
-    <br>
-    <p class="copyright" style="display:inline; margin-left: 0px; text-align: center;"><a href="../admin/indexadmin.php" style="color: #aaa; text-decoration: none;">D</p></a><p class="copyright" style="display: inline; margin-right:0px">rimTeam Technlogies© 2021, All Rights Reserved</p>
+    <h2></h2>
+    <p class="copyright" style="display: inline; margin-right:0px">DrimTeam Technlogies© 2021, All Rights Reserved</p>
+    
     <div>
-
 </footer><!--Footer, pie de página, redes sociales y contacto-->
 
 <script src="assets/js/jquery.min.js"></script>

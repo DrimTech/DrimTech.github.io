@@ -40,7 +40,7 @@
                                             <p style='border-left-color: var(--blue)''>" . $registro['Fecha'] . "</p>
                                             <p style='border-left-color: var(--blue)''>" . substr($registro['Comentario'], 0, 65) . "...</p>
                                             <br>
-                                            <a class='btn btn-primary float-end' role='button' href='''>Ver más</a>
+                                            <a class='btn btn-primary float-end' role='button' href= 'single.php/ ". $registro['categoria'] .  "?id= ". $registro['id'] . "'>Ver más</a>
                                         </div>
                                         <br>
                                     </div>

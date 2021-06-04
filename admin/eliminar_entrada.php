@@ -9,19 +9,32 @@ $miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
         exit();
     }
 
+
+
 if(isset($_GET['id']))
 {
 
+
+
     $id = $_GET['id'];
+    $res = mysqli_query($miconexion, "SELECT * FROM contenido WHERE id = $id");
+    while($row=mysqli_fetch_array($res))
+    {
+        $img = "../secciones/imagenes/" . $row['Imagen'];
+    }
+
+    unlink($img);
+
     $query = "DELETE FROM contenido WHERE id = $id";
     $result = mysqli_query($miconexion,$query);
 
     $query2 = "ALTER TABLE contenido AUTO_INCREMENT = 1";
     $result2 = mysqli_query($miconexion,$query2);
 
+
     if(!$result)
     {
-        die("Query Failed");
+        die("Query Failed 1");
     }
 
     if(!$result2){

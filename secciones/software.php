@@ -14,6 +14,10 @@
 <br>
     <h1 style="border-right-style: none;text-align: center;color: white;" class="fw-bold">SOFTWARE</h1>
     <center><hr style="color: var(--gray); background: var(--gray);" width=40%></center>
+
+    <h4 style="border-right-style: none;text-align: center;color: white;" class="fw-bold">Desliza hacia abajo para ver más</h4>
+    <p style="border-right-style: none;text-align: center;color: white;" class="fw-bold">↓ &nbsp;&nbsp;&nbsp; ↓ &nbsp;&nbsp;&nbsp; ↓ &nbsp;&nbsp;&nbsp; ↓</p>
+
 <br>
 
 <?php 
@@ -31,7 +35,7 @@
         while($registro = mysqli_fetch_assoc($resultado)) {
             if($registro['Imagen']!=""){
                     echo "
-                    <section align: 'center' style='color: black; background: var(--gray-dark); padding-top: 5px;'>
+                    <section class='scroll-element js-scroll fade-in-bottom' align: 'center' style='color: black; background: var(--gray-dark); padding-top: 5px;'>
                         <div class='container'>
                              <div class='row'>
                                 <div class='col-md-7 bg-secondary text-light'>
@@ -55,12 +59,17 @@
                     </section>
                     <br><br>";
             }
-            echo "<hr>";
+            echo "<hr>"; # Termina sección
         }
     }
 ?> <!-- Este es el formato que se le da al listado de publicaciones -->
 
 <?php require_once("../footer.php"); ?> <!-- Llama al footer -->
+
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/js/Sidebar-Menu.js"></script>
+
 
 </body>
 </html>

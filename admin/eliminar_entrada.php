@@ -8,22 +8,21 @@ $miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
         echo "La conexion ha fallado: " . mysqli_error();
         exit();
     }
+# Se conecta a la base de datos donde se encuentran los posts ↑ ↑ ↑
 
 
-
+# Comienza función de borrado ↓ ↓ ↓
 if(isset($_GET['id']))
 {
+    $id = $_GET['id']; # Obtiene el ID de la publicación
+    $res = mysqli_query($miconexion, "SELECT * FROM contenido WHERE id = $id"); # Se selecciona la info respecto al ID de la publicación
 
-
-
-    $id = $_GET['id'];
-    $res = mysqli_query($miconexion, "SELECT * FROM contenido WHERE id = $id");
     while($row=mysqli_fetch_array($res))
     {
         $img = "../secciones/imagenes/" . $row['Imagen'];
-    }
+    } # Aquí se obtiene el nombre de la imagen del directorio donde se almacenan las imágenes
 
-    unlink($img);
+    unlink($img); # Este lo borra
 
     $query = "DELETE FROM contenido WHERE id = $id";
     $result = mysqli_query($miconexion,$query);
@@ -34,14 +33,14 @@ if(isset($_GET['id']))
 
     if(!$result)
     {
-        die("Query Failed 1");
+        die("El borrado ha fallado");
     }
 
     if(!$result2){
-        die("Query 2 Failed");
+        die("El auto_increment ha fallado");
     }
 }
-
+# Termina función de borrado ↑ ↑ ↑
 ?>
 
 <script type="text/javascript">

@@ -108,9 +108,10 @@
                                         <th width="6%">Editar</th>
                                         <th width="6%">Eliminar</th>
                                     </tr>
-                                </thead>
+                                </thead> <!-- Columnas de la tabla administrativa -->
 
                                 <tbody>
+
 								<?php
 								$miconexion = mysqli_connect("localhost", "root", "", "blog_posts");                                ;
 								$query="SELECT * FROM contenido";
@@ -131,7 +132,8 @@
                                     </tr>
 								<?php 
 								}
-								?>
+								?><!-- Selecciona y muestra la información de la database por fila en una tabla --> 
+
                                 </tbody>
                                 
                             </table> 

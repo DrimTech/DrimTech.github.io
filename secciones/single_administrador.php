@@ -23,8 +23,7 @@ $categoria  = '';
 
     }
   }
-
-?>
+?> <!-- Aqui comienza el contenedor donde se proyecta la publicación individual -->
 
 <!DOCTYPE html>
 <html>
@@ -39,12 +38,9 @@ $categoria  = '';
     <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="/assets/css/Highlight-Phone.css">
     <link rel="stylesheet" href="/assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="/assets/css/Sidebar-Menu-1.css">
-    <link rel="stylesheet" href="/assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <title><?php echo $row['Titulo'] ?></title>
-</head>
-
+</head> <!-- Importa estilos -->
 
 <body style="color: black;background: var(--gray-dark);">
     <nav class="navbar sticky-top navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
@@ -57,7 +53,7 @@ $categoria  = '';
                     <li class="nav-item"><a class="nav-link" href="/secciones/software.php">Software<br></a></li>
                     <li class="nav-item"><a class="nav-link" href="/secciones/otros.php">Otros<br></a></li>
                     <br>
-                    <li class="nav-item"><a class="btn btn-success" href="/admin/indexadmin.php">Regresar a Dashboard<br></a></li>
+                    <li class="nav-item"><a class="btn btn-success" href="/admin/admin_portada.php">Regresar al panel de publicaciones<br></a></li>
                 </ul><!--Lista de elementos de la Navigation Bar (Barra de navegación)-->
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"></label></div>
@@ -69,11 +65,7 @@ $categoria  = '';
     <h1 style="border-right-style: none;text-align: center;color: white;" class="fw-bold"><?php echo $row['Titulo'] ?></h1>
     <center><br><hr style="color: var(--gray); background: var(--gray);" width=40%></center>
 
-
-
 <body>
-
-
 
 <?php 
 

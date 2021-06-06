@@ -23,8 +23,7 @@ $categoria  = '';
 
     }
   }
-
-?>
+?> <!-- Aqui comienza el contenedor donde se proyecta la publicación individual -->
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +42,7 @@ $categoria  = '';
     <link rel="stylesheet" href="/assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <title><?php echo $row['Titulo'] ?></title>
-</head>
+</head> <!-- Importa estilos -->
 
 
 <body style="color: black;background: var(--gray-dark);">
@@ -67,10 +66,7 @@ $categoria  = '';
     <h1 style="border-right-style: none;text-align: center;color: white;" class="fw-bold"><?php echo $row['Titulo'] ?></h1>
     <center><br><hr style="color: var(--gray); background: var(--gray);" width=40%></center>
 
-
-
 <body>
-
 
 
 <?php 
@@ -92,8 +88,7 @@ if($result = mysqli_query($miconexion, $query)){
                     </div>
             </div>
             <br>
-
-                    ";
+                    "; # Contenedor para proyectar imagen
         }
     }
 }

@@ -84,9 +84,5 @@
   <button class="btn btn-primary" type="button" ><a href="../cerrar_sesion.php">Cerrar Sesión</button></a> <!-- Botón para cerrar sesión -->
 </div> <!--Cuerpo del blog, publicaciones más recientes, redes sociales, footer, etc.-->
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/Sidebar-Menu.js"></script>
-
 </body><!--Cuerpo de la página-->
 </html>

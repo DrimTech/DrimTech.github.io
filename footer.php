@@ -1,12 +1,4 @@
 <footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
-              
-    <ul class="list-inline">
-        <li class="list-inline-item"><a href="../index.php" >Home</a></li>
-        <li class="list-inline-item"><a href="#" >Servicios</a></li>
-        <li class="list-inline-item"><a href="#" >Sobre nosotros</a></li>
-        <li class="list-inline-item"><a href="#" >Términos</a></li>
-        <li class="list-inline-item"><a href="#" >Política de privacidad</a></li>
-    </ul><!--Términos y condiciones, servicios, sobre nosotros, privacidad-->
     
     <div class="text-center">
     <h2></h2>
@@ -15,8 +7,8 @@
     <div>
 </footer><!--Footer, pie de página, redes sociales y contacto-->
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/Sidebar-Menu.js"></script>
+<script src="../assets/js/scroll.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Footer construido para llamarlo en las categorías -->

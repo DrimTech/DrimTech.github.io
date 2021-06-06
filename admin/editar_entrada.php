@@ -13,20 +13,23 @@
         <link rel="stylesheet" href="../assets/css/Navigation-with-Search.css">
         <link rel="stylesheet" href="../assets/css/Entrada.css">
 </head>
+
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">
         <div class="container">
-            <a class="navbar-brand" href="indexadmin.php">Volver al Dashboard</a>
+            <a class="navbar-brand" href="admin_portada.php">Volver al panel de publicaciones</a>
             <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-    </nav><!--Barra de navegación sencilla que retorna al dashboard-->
+    </nav><!--Barra de navegación sencilla que retorna al panel de publicaciones-->
     
     <br>
     
-<h2>Editar entrada</h2><br>
+<h2>Editar entrada</h2><br> 
 <body style="color: var(--blue);background: var(--gray-dark);">
+
+<!-- Comienza función que actualiza la edición de un post ↓ ↓ ↓ -->
 <?php
 $miconexion = mysqli_connect("localhost", "root", "", "blog_posts");
 $title = '';
@@ -60,28 +63,28 @@ $description= '';
      ';
      header("refresh:1;admin_portada.php");
   }
-?>
+?> <!-- Finaliza función que actualiza la información de una entrada ↑ ↑ ↑ -->
+
 <form action="editar_entrada.php?id=<?php echo $_GET['id'];?>" method="POST" enctype="multipart/form-data" name="form1">
-    <hr color= white width= 40%><br>
+    <hr color= white width= 50%><br>
         <table>
             <tr>
               <td>Título:
                 <label for="campo_titulo"></label></td>
-              <td><input type="text" name="Titulo" id="campo_titulo" style="width: 90%; position: relative; right: 60px;" value="<?php echo $title; ?>" placeholder="Actualiza el Titulo"></td> 
+              <td><input type="text" name="Titulo" id="campo_titulo" style="width: 100%; position: relative; right: 20px;" value="<?php echo $title; ?>" placeholder="Actualiza el Titulo"></td> 
             </tr> <!-- Area de texto para el título del post -->
 
             <tr><td>Cuerpo:
                 <label for="area_comentarios"></label></td>
-                <td><textarea name="Comentario" id="area_comentarios" rows="10" cols="50" style="width: 90%; position: relative; right: 60px;" placeholder="Actualiza la descripcion"><?php echo $description; ?></textarea></td> <!-- Area de texto para el cuerpo del post -->
+                <td><textarea name="Comentario" id="area_comentarios" rows="10" cols="50" style="width: 100%; position: relative; right: 20px;" placeholder="Actualiza la descripcion"><?php echo $description; ?></textarea></td> <!-- Area de texto para el cuerpo del post -->
             </tr>
             <tr><td colspan="2">  
             <input type="submit" class="btn btn-success  action-button" name="update" id="btn_enviar" value="Actualizar"> <!-- Boton que envía la info -->
         </td></tr>
           
         </table>
-</form>
+</form><!-- Este form arroja la información depositada en la database para su edición -->
+
 </body>
 <script src="../assets/plugins/SweetAlert/dist/sweetalert2.all.min.js"></script>
-</html>      
- 
-
+</html>

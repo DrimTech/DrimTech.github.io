@@ -67,7 +67,7 @@
             <td colspan="2" align="left"><input type="file" class="btn btn-light action-button" name="imagen" id="imagen"></td>
         </tr>
             <tr><td colspan="2">  
-            <input type="submit" class="btn btn-light action-button" name="btn_enviar" id="btn_enviar" value="Enviar"> <!-- Boton que envía la info -->
+            <input type="submit" class="btn btn-light action-button" name="btn_enviar" id="btn_enviar" value="Enviar"> <!-- Botón que envía la info -->
         </td></tr>
         </table>
 </form>

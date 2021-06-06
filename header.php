@@ -1,13 +1,12 @@
 <link rel="icon" href="../browser.png">
+<link rel="stylesheet" href="../assets/css/scroll-animations.css">
 <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-<link rel="stylesheet" href="../asets/fonts/ionicons.min.css">
+<link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
 <link rel="stylesheet" href="../assets/css/Article-List.css">
 <link rel="stylesheet" href="../assets/css/Footer-Basic.css">
 <link rel="stylesheet" href="../assets/css/Highlight-Phone.css">
 <link rel="stylesheet" href="../assets/css/Navigation-with-Search.css">
-<link rel="stylesheet" href="../assets/css/Sidebar-Menu-1.css">
-<link rel="stylesheet" href="../assets/css/Sidebar-Menu.css">
 <link rel="stylesheet" href="../assets/css/styles.css">
 
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="background: var(--gray);">

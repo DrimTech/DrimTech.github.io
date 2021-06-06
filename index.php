@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" style="color: var(--blue);">
+<html lang="en" style=" scroll-behavior: smooth; color: var(--blue);">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>DrimTech - Blog de Tecnologia</title>
+    
     <link rel="icon" href="browser.png">
+    <link rel="stylesheet" href="assets/css/scroll-animations.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
@@ -13,8 +15,6 @@
     <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="/assets/css/Highlight-Phone.css">
     <link rel="stylesheet" href="/assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="/assets/css/Sidebar-Menu-1.css">
-    <link rel="stylesheet" href="/assets/css/Sidebar-Menu.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head><!--Título de pestaña, importaciones y conexiones-->
 
@@ -50,6 +50,7 @@
         while($registro = mysqli_fetch_assoc($resultado)) {
             if($registro['Imagen']!=""){
                     echo "
+                        <center>
                         <section class='highlight-phone' style='background: var(--gray-dark); position: relative; right: 60px;'>
                         <div class='container'>
                             <div class='row'>
@@ -69,7 +70,8 @@
                 </div>
             </div>
         </div>
-    </section>"; 
+    </section>
+    </center>"; 
     }
 echo "<hr>";
 }
@@ -86,19 +88,18 @@ $resultado2 = mysqli_query($miconexion, $miconsulta2);
 $miconsulta3 = "SELECT * FROM `contenido` WHERE 'otros' = categoria ORDER BY FECHA DESC LIMIT 1";
 $resultado3 = mysqli_query($miconexion, $miconsulta3);
 
-$registro = mysqli_fetch_assoc($resultado);
-$registro2 = mysqli_fetch_assoc($resultado2);
-$registro3 = mysqli_fetch_assoc($resultado3);
+$registro = mysqli_fetch_assoc($resultado); # Esta consulta ordena el primer container donde se proyecta la sección de hardware
+$registro2 = mysqli_fetch_assoc($resultado2); # Esta consulta ordena el primer container donde se proyecta la sección de software
+$registro3 = mysqli_fetch_assoc($resultado3); # Esta consulta ordena el primer container donde se proyecta la sección de otros
 
 if($registro['Imagen']!="" and $registro2['Imagen']!="" and $registro3['Imagen']!=""){
 echo "
     <section class='article-list' style='border-color: var(--secondary);background: var(--gray-dark);'>
         
-        <div class='container'>
+        <div class='container scroll-element js-scroll fade-in-bottom'>
             
             <div class='intro'>
-                <h2 class='text-center'>Publicaciones Recientes</h2>
-                <p class='text-center'>En este apartado se pondrán las tres últimas actualizaciones/publicaciones del blog.</p>
+                <h2 class='text-center'>Publicaciones más recientes</h2>
             </div><!--Título para las publicaciones recientes-->
             
             <div class='row articles'>
@@ -124,16 +125,9 @@ echo "
     }
 
 ?> <!--Cuerpo del blog, publicaciones más recientes,-->  
-<footer class="footer-basic" style="background: var(--gray);border-color: var(--orange);">
-              
-              <ul class="list-inline">
-                  <li class="list-inline-item"><a href="../index.php" >Home</a></li>
-                  <li class="list-inline-item"><a href="#" >Servicios</a></li>
-                  <li class="list-inline-item"><a href="#" >Sobre nosotros</a></li>
-                  <li class="list-inline-item"><a href="#" >Términos</a></li>
-                  <li class="list-inline-item"><a href="#" >Política de privacidad</a></li>
-              </ul><!--Términos y condiciones, servicios, sobre nosotros, privacidad-->
-              
+
+<footer class="footer-basic" style="padding-top:  10px; padding-bottom:  20px; background: var(--gray);border-color: var(--orange);">
+
               <div class="text-center">
               <h2></h2>
               <p class="copyright" style="display: inline; margin-right:0px">DrimTeam Technlogies© 2021, All Rights Reserved</p><br>
@@ -141,15 +135,9 @@ echo "
               <div>
           </footer><!--Footer, pie de página, redes sociales y contacto-->
           
-          <script src="assets/js/jquery.min.js"></script>
-          <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-          <script src="assets/js/Sidebar-Menu.js"></script>
-          
-          <!-- Footer construido para llamarlo en las categorías --> 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/Sidebar-Menu.js"></script>
-
+    <script src="assets/js/scroll.js"></script>
+    
 </body><!--Cuerpo de la página-->
 </html>
-

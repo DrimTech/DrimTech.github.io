@@ -25,6 +25,7 @@ td, tr{
 }
 
 table{
+	transition-duration: 2s;
 	width:50%;
 	margin:auto;
 	background-color:rgb(218, 218, 218);

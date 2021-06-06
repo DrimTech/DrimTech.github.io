@@ -15,7 +15,6 @@
 		exit();
 	}
 
-
 	if($_FILES['imagen']['error']){
 		switch ($_FILES['imagen']['error']) {
 			case 1:
@@ -33,7 +32,7 @@
 			case 4:
 				echo "No se ha enviado ningún archivo de imagen";
 				break;
-		}
+		} # Corrobora que se suba una imagen correctamente
 		
 	} else {
 		echo "Entrada subida con éxito <br>";
@@ -48,26 +47,24 @@
 		} else {
 
 			echo "El archivo no se ha podido copiar al directorio de imágenes";
-
 		}
-	}
+	} # Comprueba que si no hay errores, se subió el post con éxito
 
-	$eltitulo 	= $_POST['campo_titulo'];
-	$lafecha 	= date("Y-m-d H:i:s");
-	$elcomentario = $_POST['area_comentarios'];
-	$laimagen = $_FILES['imagen']['name'];
-	$categoria = $_POST['seleccion'];
+	$eltitulo 		= $_POST['campo_titulo'];
+	$lafecha 		= date("Y-m-d H:i:s");
+	$elcomentario 	= $_POST['area_comentarios'];
+	$laimagen	 	= $_FILES['imagen']['name'];
+	$categoria 		= $_POST['seleccion'];
 
-	$miconsulta = "INSERT INTO CONTENIDO (Titulo, Fecha, Comentario, Imagen, categoria) VALUES ('" . $eltitulo ."', '" . $lafecha ."', '" . $elcomentario ."', '". $laimagen ."', '". $categoria ."')";
+	$miconsulta = "INSERT INTO CONTENIDO (Titulo, Fecha, Comentario, Imagen, categoria) VALUES ('" . $eltitulo ."', '" . $lafecha ."', '" . $elcomentario ."', '". $laimagen ."', '". $categoria ."')"; # Inserta la entrada en la database
 
 
 	$resultado=mysqli_query($miconexion, $miconsulta);
 
-	/*Cierra conexión*/
-
-	mysqli_close($miconexion);
+	mysqli_close($miconexion); 	/*Cierra conexión*/
 
 ?>
+
 <script type="text/javascript">
 	alert("Se ha agregado la publicacion exitosamente");
 	window.location.href='indexadmin.php';
